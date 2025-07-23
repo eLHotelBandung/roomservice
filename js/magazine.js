@@ -109,25 +109,6 @@ function addRegion(region, pageElement) {
 
 // Process click on a region
 
-function regionClick(event) {
-
-	var region = $(event.target);
-
-	if (region.hasClass('region')) {
-
-		$('.magazine-viewport').data().regionClicked = true;
-		
-		setTimeout(function() {
-			$('.magazine-viewport').data().regionClicked = false;
-		}, 100);
-		
-		var regionType = $.trim(region.attr('class').replace('region', ''));
-
-		return processRegion(region, regionType);
-
-	}
-
-}
 
 // Process the data of every region
 
