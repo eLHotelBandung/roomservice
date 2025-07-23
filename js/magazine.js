@@ -89,10 +89,45 @@ function loadRegions(page, element) {
 
 // Add region
 
+function addRegion(region, pageElement) {
+	
+	var reg = $('<div />', {'class': 'region  ' + region['class']}),
+		options = $('.magazine').turn('options'),
+		pageWidth = options.width/2,
+		pageHeight = options.height;
 
+	reg.css({
+		top: Math.round(region.y/pageHeight*100)+'%',
+		left: Math.round(region.x/pageWidth*100)+'%',
+		width: Math.round(region.width/pageWidth*100)+'%',
+		height: Math.round(region.height/pageHeight*100)+'%'
+	}).attr('region-data', $.param(region.data||''));
+
+
+	reg.appendTo(pageElement);
+}
 
 // Process click on a region
 
+function regionClick(event) {
+
+	var region = $(event.target);
+
+	if (region.hasClass('region')) {
+
+		$('.magazine-viewport').data().regionClicked = true;
+		
+		setTimeout(function() {
+			$('.magazine-viewport').data().regionClicked = false;
+		}, 100);
+		
+		var regionType = $.trim(region.attr('class').replace('region', ''));
+
+		return processRegion(region, regionType);
+
+	}
+
+}
 
 // Process the data of every region
 
