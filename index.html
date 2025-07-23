@@ -20,7 +20,7 @@
 <body>
 
 <div id="wrapper" class="">
- 
+              
 <ul id="menu">
 <div id="canvas">
 
@@ -36,7 +36,6 @@
 		</div>
 	</div>
 </div>
-
 
 </div>
 
@@ -281,16 +280,7 @@ function loadApp() {
 
 	// Events for thumbnails
 
-	$('.thumbnails').click(function(event) {
-		
-		var page;
-
-		if (event.target && (page=/page-([0-11]+)/.exec($(event.target).attr('class'))) ) {
-		
-			$('.magazine').turn('page', page[1]);
-		}
-	});
-
+	
 	$('.thumbnails li').
 		bind($.mouseEvents.over, function() {
 			
