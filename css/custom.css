@@ -1806,3 +1806,5 @@ img.img-respon {
     width: 100%;
 }
 
+.region.to-page{ display: none}
+.region.link{display:none}
